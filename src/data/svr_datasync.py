@@ -23,8 +23,12 @@ syncDatasetName = arcpy.os.path.join(env.workspace, inputName)
 arcpy.AddMessage(syncDatasetName)
 
 try:
-    # retrieve the deltas from the OpenStreetMap server and load them into the local geodatabase
+  # TODO: OSM Combine (add attributes as decided by the UC project
+  
+  # retrieve the deltas from the OpenStreetMap server and load them into the local geodatabase
     arcpy.OSMGPDiffLoader_osmtools(r'http://planet.openstreetmap.org/replication',syncDatasetName,start_diff_time,load_inside_aoi,'NORMAL_LOGGING')
+    
+  # TODO: OSM Selector (to explode the tags into the appropriate attribute fields
 
 except:
     pass
